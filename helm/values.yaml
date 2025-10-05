@@ -13,7 +13,7 @@ minioArgs:
 
 env:
   rootUser: admin
-  rootPassword: admin
+  rootPassword: admin123
 
 service:
   type: ClusterIP
