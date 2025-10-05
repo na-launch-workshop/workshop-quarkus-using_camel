@@ -19,8 +19,8 @@ service:
   type: ClusterIP
   annotations: {}
   ports:
-    console: 9000
-    api: 9001
+    api: 9000
+    console: 9001
     
 persistence:
   enabled: false
