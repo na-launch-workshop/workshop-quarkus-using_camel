@@ -35,16 +35,17 @@ routes:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
-  #   certificate: ""
-  #   key: ""
-  #   caCertificate: ""
-  #   destinationCACertificate: ""
-  # console:
-  #   host: ""
-  #   annotations: {}
-  # api:
-  #   host: ""
-  #   annotations: {}
+    certificate: ""
+    key: ""
+    caCertificate: ""
+    destinationCACertificate: ""
+  console:
+    host: ""
+    annotations:      
+      app.openshift.io/route-url: "https://{{ .Release.Name }}-console-{{ .Release.Namespace }}.{{ .Values.routes.tls.termination | default \"apps\" }}.{{ .Values.global.clusterDomain | default \"{{ .Release.Service }}\" }}"
+  api:
+    host: ""
+    annotations: {}
 
 # Easy knobs for tuning
 resources: {}
