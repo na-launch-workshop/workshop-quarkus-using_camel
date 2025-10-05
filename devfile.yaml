@@ -35,21 +35,35 @@ components:
       size: 1G
 
 commands:
-  - id: 1-package
+  - id: 1-deploy-helm
     exec:
-      label: "1. Package the application"
+      label: "Deploy Helm chart on start"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: >
+        helm upgrade --install workshop-deployer ${PROJECT_SOURCE}/helm        
+      group:
+        kind: run
+
+  - id: 2-package
+    exec:
+      label: "Package the application"
       component: tools
       workingDir: ${PROJECT_SOURCE}
       commandLine: "mvn package"
       group:
         kind: build
         isDefault: true
-  - id: 2-build-and-deploy-to-openshift
+  - id: 3-build-and-deploy-to-openshift
     exec:
-      label: "2. Build and deploy To Openshift using deploy.sh"
+      label: "Build and deploy To Openshift using deploy.sh"
       component: tools
       workingDir: ${PROJECT_SOURCE}
       commandLine: source ${PROJECT_SOURCE}/deploy.sh
       group:
         kind: run
         isDefault: true
+
+events:
+    postStart:
+      - deploy-helm
