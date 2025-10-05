@@ -1,0 +1,28 @@
+{{- if .Values.routes.enabled }}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ include "minio.fullname" . }}-console
+  labels:
+    {{- include "minio.labels" . | nindent 4 }}
+  {{- with .Values.routes.console.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  to:
+    kind: Service
+    name: {{ include "minio.fullname" . }}
+  port:
+    targetPort: console
+  {{- if .Values.routes.console.host }}
+  host: {{ .Values.routes.console.host }}
+  {{- end }}
+  {{- if .Values.routes.tls.termination }}
+  tls:
+    termination: {{ .Values.routes.tls.termination }}
+    {{- with .Values.routes.tls.insecureEdgeTerminationPolicy }}
+    insecureEdgeTerminationPolicy: {{ . }}
+    {{- end }}
+  {{- end }}
+{{- end }}

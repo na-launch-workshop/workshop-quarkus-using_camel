@@ -1,0 +1,51 @@
+replicaCount: 1
+
+image:
+  repository: quay.io/minio/minio
+  tag: latest
+  pullPolicy: IfNotPresent
+
+minioArgs:
+  - server
+  - /data
+  - "--console-address"
+  - ":9001"
+
+env:
+  rootUser: admin
+  rootPassword: admin123
+
+service:
+  type: ClusterIP
+  annotations: {}
+  ports:
+    api: 9000
+    console: 9001
+
+persistence:
+  enabled: false
+  existingClaim: ""
+  size: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClass: ""
+
+routes:
+  enabled: true
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: None
+  console:
+    host: ""
+    annotations: {}
+  api:
+    host: ""
+    annotations: {}
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
