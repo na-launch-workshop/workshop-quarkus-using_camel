@@ -66,4 +66,4 @@ commands:
 
 events:
     postStart:
-      - deploy-helm
+      - 1-deploy-helm
