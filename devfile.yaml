@@ -8,8 +8,7 @@ attributes:
 components:
   - name: tools
     container:
-      # image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest 
-      image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:3.23
+      image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest       
       env:
         - name: QUARKUS_HTTP_HOST
           value: 0.0.0.0
