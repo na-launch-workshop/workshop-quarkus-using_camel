@@ -18,11 +18,27 @@ spec:
   {{- if .Values.routes.console.host }}
   host: {{ .Values.routes.console.host }}
   {{- end }}
-  {{- if .Values.routes.tls.termination }}
+  {{- with .Values.routes.tls.termination }}
   tls:
-    termination: {{ .Values.routes.tls.termination }}
-    {{- with .Values.routes.tls.insecureEdgeTerminationPolicy }}
+    termination: {{ . }}
+    {{- with $.Values.routes.tls.insecureEdgeTerminationPolicy }}
     insecureEdgeTerminationPolicy: {{ . }}
+    {{- end }}
+    {{- with $.Values.routes.tls.certificate }}
+    certificate: |-
+      {{ . | nindent 6 }}
+    {{- end }}
+    {{- with $.Values.routes.tls.key }}
+    key: |-
+      {{ . | nindent 6 }}
+    {{- end }}
+    {{- with $.Values.routes.tls.caCertificate }}
+    caCertificate: |-
+      {{ . | nindent 6 }}
+    {{- end }}
+    {{- with $.Values.routes.tls.destinationCACertificate }}
+    destinationCACertificate: |-
+      {{ . | nindent 6 }}
     {{- end }}
   {{- end }}
 {{- end }}

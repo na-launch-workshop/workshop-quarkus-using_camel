@@ -34,7 +34,11 @@ routes:
   enabled: true
   tls:
     termination: edge
-    insecureEdgeTerminationPolicy: None
+    insecureEdgeTerminationPolicy: Redirect
+    certificate: ""
+    key: ""
+    caCertificate: ""
+    destinationCACertificate: ""
   console:
     host: ""
     annotations: {}
@@ -43,7 +47,7 @@ routes:
     annotations: {}
 
 argocdProject:
-  enabled: false
+  enabled: true
   name: argo-workshop-quarkus-hello_quarkus
   namespace: openshift-gitops
   description: Argo CD project for MinIO workshop deployments
