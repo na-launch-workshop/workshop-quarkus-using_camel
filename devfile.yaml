@@ -64,6 +64,6 @@ commands:
         kind: run
         isDefault: true
 
-events:
-    postStart:
-      - 1-deploy-helm
+# events:
+#     postStart:
+      #- 1-deploy-helm
