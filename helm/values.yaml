@@ -35,16 +35,16 @@ routes:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
-    certificate: ""
-    key: ""
-    caCertificate: ""
-    destinationCACertificate: ""
-  console:
-    host: ""
-    annotations: {}
-  api:
-    host: ""
-    annotations: {}
+  #   certificate: ""
+  #   key: ""
+  #   caCertificate: ""
+  #   destinationCACertificate: ""
+  # console:
+  #   host: ""
+  #   annotations: {}
+  # api:
+  #   host: ""
+  #   annotations: {}
 
 # Easy knobs for tuning
 resources: {}
