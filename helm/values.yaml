@@ -42,14 +42,6 @@ routes:
     host: ""
     annotations: {}
 
-resources: {}
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
 argocdProject:
   enabled: false
   name: argo-workshop-quarkus-hello_quarkus
@@ -58,9 +50,16 @@ argocdProject:
   sourceRepos:
     - https://github.com/na-launch-workshop/workshop-quarkus-using_camel.git
   destinations:
-    - namespace: minio
+    - namespace: '*'
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: "*"
       kind: "*"
   namespaceResourceWhitelist: []
+
+
+# Easy knobs for tuning
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
