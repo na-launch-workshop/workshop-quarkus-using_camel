@@ -19,9 +19,9 @@ service:
   type: ClusterIP
   annotations: {}
   ports:
-    api: 9000
-    console: 9001
-
+    console: 9000
+    api: 9001
+    
 persistence:
   enabled: false
   existingClaim: ""
@@ -50,7 +50,7 @@ argocdProject:
   enabled: true
   name: argo-workshop-quarkus-hello_quarkus
   namespace: openshift-gitops
-  description: Argo CD project for MinIO workshop deployments
+  description: Argo CD project for camel-quarkus workshop deployment
   sourceRepos:
     - https://github.com/na-launch-workshop/workshop-quarkus-using_camel.git
   destinations:
