@@ -13,7 +13,7 @@ minioArgs:
 
 env:
   rootUser: admin
-  rootPassword: admin123
+  rootPassword: admin
 
 service:
   type: ClusterIP
@@ -49,3 +49,18 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+argocdProject:
+  enabled: false
+  name: argo-workshop-quarkus-hello_quarkus
+  namespace: openshift-gitops
+  description: Argo CD project for MinIO workshop deployments
+  sourceRepos:
+    - https://github.com/na-launch-workshop/workshop-quarkus-using_camel.git
+  destinations:
+    - namespace: minio
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist: []

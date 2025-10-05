@@ -1,0 +1,40 @@
+{{- if .Values.argocdProject.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ .Values.argocdProject.name | quote }}
+  namespace: {{ .Values.argocdProject.namespace | quote }}
+  labels:
+    {{- include "minio.labels" . | nindent 4 }}
+spec:
+  {{- with .Values.argocdProject.description }}
+  description: {{ . | quote }}
+  {{- end }}
+  {{- with .Values.argocdProject.sourceRepos }}
+  sourceRepos:
+    {{- range . }}
+    - {{ . | quote }}
+    {{- end }}
+  {{- end }}
+  {{- with .Values.argocdProject.destinations }}
+  destinations:
+    {{- range . }}
+    - namespace: {{ .namespace | default "*" | quote }}
+      server: {{ .server | default "https://kubernetes.default.svc" | quote }}
+    {{- end }}
+  {{- end }}
+  {{- with .Values.argocdProject.clusterResourceWhitelist }}
+  clusterResourceWhitelist:
+    {{- range . }}
+    - group: {{ .group | default "*" | quote }}
+      kind: {{ .kind | default "*" | quote }}
+    {{- end }}
+  {{- end }}
+  {{- with .Values.argocdProject.namespaceResourceWhitelist }}
+  namespaceResourceWhitelist:
+    {{- range . }}
+    - group: {{ .group | default "*" | quote }}
+      kind: {{ .kind | default "*" | quote }}
+    {{- end }}
+  {{- end }}
+{{- end }}

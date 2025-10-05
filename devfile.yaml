@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: workshop-module3-java
+  name: workshop-quarkus-hello_quarkus
   version: 1.0.0
   description: DevSpaces workspace for Quarkus app
 attributes:
