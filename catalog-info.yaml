@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: workshop-module3-java
-  title: Module 3 - Java
+  name: workshop-quarkus-using_camel
+  title: Event-Driven Microservices
   description: |
     Event-Driven Microservices with Camel & Quarkus
   annotations:
@@ -10,6 +10,10 @@ metadata:
   tags:
     - camel
     - quarkus
+# links:
+#    - url: https://<openshift-cluster>/#<hosted-git-repo>
+#      title: "Launch from Dev Spaces"
+#      icon: web
 spec:
   type: module
   lifecycle: production

@@ -1,6 +1,6 @@
-# 🚀 Module 3: Event-Driven Microservices with Camel & Quarkus
+# 🚀 **Module: Event-Driven Microservices with Camel & Quarkus**
 
-Technology Stack: 
+**Technology Stack:** 
 
 - Quarkus
 - Camel (Quarkus-Camel)
