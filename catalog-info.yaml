@@ -4,7 +4,7 @@ metadata:
   name: workshop-quarkus-using_camel
   title: Event-Driven Microservices
   description: |
-    Event-Driven Microservices with Camel & Quarkus
+    Build Event-Driven Microservices with Camel & Quarkus
   annotations:
     backstage.io/techdocs-ref: dir:.
 #   backstage.io/techdocs-ref: dir:https://<hosted-git-repo>   # use absolute path instead to consolidate techdocs among repo forks

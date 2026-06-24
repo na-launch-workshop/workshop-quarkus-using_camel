@@ -1,5 +1,7 @@
 # 🚀 **Module: Event-Driven Microservices with Camel & Quarkus**
 
+Build a Quarkus microservice that consumes/produces messages using Camel Kafka or Camel AMQP.
+
 **Technology Stack:** 
 
 - Quarkus

@@ -1,5 +1,5 @@
 site_name: Event-Driven Microservices
-site_description: Event-Driven Microservices with Camel & Quarkus
+site_description: Build Event-Driven Microservices with Camel & Quarkus
 
 nav:
   - Overview: index.md
